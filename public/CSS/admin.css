@@ -1,0 +1,48 @@
+@font-face {
+    font-family: audiowide;
+    src: url(../fonts/Audiowide-Regular.ttf);
+}
+body
+{
+    background: #ED1703;
+    font-family: "audiowide";
+    color: white;
+}
+form
+{
+    width: 28%;
+    background-color: #37667A;
+    padding: 50px;
+    border-radius: 20px;
+    margin-top: 106px;
+    box-shadow:-10px 12px 19px #5f3636;
+    border-style: solid;
+    border-color: #6F4C4C;
+    border-width: 0.5px;
+}
+.btn-primary
+{
+    border-radius: 5px;
+    color: black;
+}
+.center
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.logo-img
+{
+    height: 100%;
+    width: 70px;
+    margin-bottom: 27px;
+    border-radius: 63px;
+}
+@media only screen and (max-width:800px)
+{
+    form
+    {
+       width: 100% !important;
+    }
+}

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Basic -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site Metas -->
+    <title>GAMPro</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon"  href="/Pictures/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/Pictures/images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/CSS/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/CSS/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/CSS/css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/CSS/css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+      body
+        {
+        background: whitesmoke;
+        }
+      .text {
+    color: #333; /* Text color */
+    font-size: 24px; /* Font size */
+    text-align: center; /* Center the text */
+    margin-top: 20px; /* Add some top margin for spacing */
+  }
+  .navbar-nav .nav-item.active a.nav-link {
+        color: #b0b435!important;
+    }
+
+  /* Style for the image */
+  .image {
+    display: block; /* Ensure the image is a block element */
+    margin: 0 auto; /* Center the image horizontally */
+    max-width: 100%; /* Ensure the image doesn't exceed its container width */
+    height: auto; /* Maintain the aspect ratio of the image */
+    margin-top: 10px; /* Add some top margin for spacing */
+  }
+  .gradient-custom {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Card styling */
+  .card {
+    max-width: 938px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s;
+  }
+
+  /* Card header styling */
+  .card-header {
+    background: rgb(0,240,245);
+    background: linear-gradient(90deg, rgba(0,240,245,1) 0%, rgba(0,159,255,1) 100%);
+    color: #fff;
+    border-radius: 15px 15px 0 0;
+    padding: 20px;
+  }
+
+  .card-header h5 {
+    font-size: 28px;
+    font-weight: bold;
+    animation: bounceInDown 1s;
+  }
+
+  /* Card body styling */
+  .card-body {
+    padding: 20px;
+    background: #FFFAFA;
+  }
+
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    animation: fadeIn 1s;
+  }
+
+  th, td {
+    padding: 15px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  td {
+    vertical-align: middle;
+  }
+
+  /* Image in table cell */
+  .table img {
+    max-width: 100px;
+    height: auto;
+    animation: zoomIn 1s;
+  }
+
+  /* Cancel and Return button styling */
+  .btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    animation: bounceIn 1s;
+  }
+
+  .btn-danger:hover {
+    background-color: #c82333;
+  }
+
+  /* Footer styling */
+  .card-footer {
+    background-color: #a8729a;
+    border-radius: 0 0 15px 15px;
+    padding: 20px;
+    animation: fadeInUp 1s;
+  }
+
+  .card-footer h5 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-align: right;
+    animation: fadeInRight 1s;
+  }
+
+  /* No orders message styling */
+  .text {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin: 30px 0;
+    animation: slideInDown 1s;
+  }
+
+  .image {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes bounceInDown {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    60% {
+      transform: translateY(30px);
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes zoomIn {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInRight {
+    0% {
+      transform: translateX(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInDown {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .invoice-button {
+    display: inline-block;
+    padding: 10px 27px; /* Adjust the padding to your liking */
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Text color */
+    text-decoration: none;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    margin-top: 3px;
+}
+
+.invoice-button:hover {
+    background-color: #0056b3; /* Button background color on hover */
+}
+
+  
+    </style>
+  </head>
+  <body>
+     <!-- Start Main Top -->
+    <div class="main-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="right-phone-box">
+                        <p>Call US :- <a href="#"> +11 900 800 100</a></p>
+                    </div>
+                    <div class="our-link">
+                        <ul>
+                            <li><a href="/Account"><i class="fa fa-user s_color"></i> My Account</a></li>
+                            <li><a href="/contactUs"><i class="fas fa-headset"></i> Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                    <div class="login-box">
+                 <a id="logoutButton" class="btn btn-primary" href="/logout">Sign Out</a>
+              </div>
+
+                </div>
+            </div>
+        </div> 
+        
+    </div>
+    <!-- End Main Top -->
+
+    <!-- Start Main Top -->
+    <header class="main-header">
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+            <div class="container">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                    <a class="navbar-brand" href="/"><img src="/Pictures/gampro-high-resolution-color-logo.png" class="logo" style="display:flex; justify-content:center; align-items:center;border-radius: 53px; width:102px;" alt=""></a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/aboutus">About Us</a></li>
+                        <li class="dropdown" id="shopDropdown">
+                                <a href="#" class="nav-link dropdown-toggle arrow" onclick="toggleDropdown('shopDropdownMenu')">SHOP</a>
+                                <ul class="dropdown-menu" id="shopDropdownMenu">
+                                    <li><a href="/ewallet">E-Wallet</a></li>
+                                    <li><a href="/products">Games</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown" id="categoryDropdown">
+                                <a href="#" class="nav-link dropdown-toggle arrow" onclick="toggleDropdown('categoryDropdownMenu')">Category</a>
+                                <ul class="dropdown-menu" id="categoryDropdownMenu">
+                                    <li><a href="/openworld">Open World</a></li>
+                                    <li><a href="/FPS">FPS</a></li>
+                                    <li><a href="/racing">Racing</a></li>
+                                </ul>
+                            </li>
+                        
+                        <li class="nav-item"><a class="nav-link" href="/wishlists">Wish List</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+
+                <!-- Start Atribute Navigation -->
+                <div class="attr-nav">
+                    <ul>
+                        <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+                        <li class="side-menu">
+							<a href="/cart">
+								<i class="fa fa-shopping-bag"></i>
+								<span class="badge">{{cartNumber}}</span>
+								<p>My Cart</p>
+							</a>
+						</li>
+                    </ul>
+                </div>
+                <!-- End Atribute Navigation -->
+            </div>
+            <!-- Start Side Menu -->
+            <div class="side">
+                <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+                <li class="cart-box">
+                    <ul class="cart-list">
+                        <li>
+                            <a href="#" class="photo"><img src="/Pictures/images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Delica omtantur </a></h6>
+                            <p>1x - <span class="price">$80.00</span></p>
+                        </li>
+                        <li>
+                            <a href="#" class="photo"><img src="/Pictures/images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Omnes ocurreret</a></h6>
+                            <p>1x - <span class="price">$60.00</span></p>
+                        </li>
+                        <li>
+                            <a href="#" class="photo"><img src="/Pictures/images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Agam facilisis</a></h6>
+                            <p>1x - <span class="price">$40.00</span></p>
+                        </li>
+                        <li class="total">
+                            <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                            <span class="float-right"><strong>Total</strong>: $180.00</span>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+            <!-- End Side Menu -->
+        </nav>
+        <!-- End Navigation -->
+    </header>
+    <!-- End Main Top -->
+
+    <!-- Start Top Search -->
+    <div class="top-search">
+        <div class="container">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control" placeholder="Search">
+                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+            </div>
+        </div>
+    </div>
+    <!-- End Top Search -->
+    <section class="h-100 gradient-custom">
+  <div class="container py-5 h-100" style="max-width: 1200px;">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-10">
+        {{#if orders}}
+        <div class="card" style="border-radius: 10px;box-shadow: 0px 0px 9px lightgrey;">
+          <div class="card-header px-4 py-5">
+            <h5 class="text-muted mb-0" style="font-size:xx-large">Thanks for your Order, <span style="color: #614e4e;">{{user.name}}</span>!</h5>
+          </div>
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <p class="lead fw-normal mb-0" style="color: #a8729a;">Receipt</p>
+              <p class="small text-muted mb-0">Receipt Voucher : 1KAU9-84UIL</p>
+            </div>
+            
+           <div class="card shadow-0 border mb-4">
+            <div class="card-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>status</th>
+                    <th>Total</th>
+                    <th>Cancel order</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  {{#each orders}}
+                  <tr>
+                    <td style="width: 233px;"><img src="/Pictures/Home_Buy/{{image}}" class="img-fluid" alt="Phone" style="max-width: 92%; height: auto;"></td>
+                    <td>{{this.Products.name}}</td>
+                    <td>{{this.quantity}}</td>
+                    <td>{{this.status}}</td>
+                    <td>{{this.total}}</td>
+                    {{#if (unless_eq this.status "Return-Completed")}}
+                    <td>
+                    <button class="btn btn-danger" onclick="cancelOrder('{{this._id}}')" style="color: whitesmoke;">Cancel</button>
+                    <button class="btn btn-danger" id="return" onclick="ReturnOrder('{{this._id}}')" style="color: whitesmoke;">Return</button>
+                    <a href="/generate-invoice?id={{this._id}}" download="invoice.pdf" class="invoice-button">Generate Invoice</a>
+                    <input type="hidden" id="invoice" value="{{this._id}}">
+                    <input type="hidden" id="total" value="{{this.total}}">
+                    <input type="hidden" id="date" value="{{this.Date}}"> 
+                    </td>
+                    {{/if}}
+                  </tr>
+                  <tr>
+                    <td colspan="6">
+                      <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="6">
+                      <div class="row d-flex align-items-center">
+                        
+                        <div class="col-md-10">
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+   {{else}}
+   <h1 class="text">No orders</h1>
+      <img class="image" src="/Pictures/images/No_orders.jpg">
+    {{/if}}
+</section>
+    <!-- Start Footer  -->
+    <footer>
+        <div class="footer-main">
+            <div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-top-box">
+							<h3>Business Time</h3>
+							<ul class="list-time">
+								<li>Monday - Friday: 08.00am to 05.00pm</li> <li>Saturday: 10.00am to 08.00pm</li> <li>Sunday: <span>Closed</span></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-top-box">
+							<h3>Newsletter</h3>
+							<form class="newsletter-box">
+								<div class="form-group">
+									<input class="" type="email" name="Email" placeholder="Email Address*" />
+									<i class="fa fa-envelope"></i>
+								</div>
+								<button class="btn hvr-hover" type="submit">Submit</button>
+							</form>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-top-box">
+							<h3>Social Media</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<ul>
+                                <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
+                            </ul>
+						</div>
+					</div>
+				</div>
+				<hr>
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-widget">
+                            <h4>About Freshshop</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> 							
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-link">
+                            <h4>Information</h4>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Customer Service</a></li>
+                                <li><a href="#">Our Sitemap</a></li>
+                                <li><a href="#">Terms &amp; Conditions</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Delivery Information</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-link-contact">
+                            <h4>Contact Us</h4>
+                            <ul>
+                                <li>
+                                    <p><i class="fas fa-map-marker-alt"></i>Address: Michael I. Days 3756 <br>Preston Street Wichita,<br> KS 67213 </p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+1-888705770">+1-888 705 770</a></p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-envelope"></i>Email: <a href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer  -->
+
+    <!-- Start copyright  -->
+    <div class="footer-copyright">
+        <p class="footer-company">All Rights Reserved. &copy; 2018 <a href="#">ThewayShop</a> Design By :
+            <a href="https://html.design/">html design</a></p>
+    </div>
+    <!-- End copyright  -->
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+    <!-- ALL JS FILES -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/jquery.superslides.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/inewsticker.js"></script>
+    <script src="js/bootsnav.js."></script>
+    <script src="js/images-loded.min.js"></script>
+    <script src="js/isotope.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/baguetteBox.min.js"></script>
+    <script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+      function cancelOrder(orderId) {
+  swal.fire({
+    title: 'Are you sure?',
+    text: 'Do you really want to cancel this order?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, cancel it!',
+    cancelButtonText: 'No, keep it'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      swal.fire({
+        title: 'Cancelling Order',
+        text: 'Please wait...',
+        showConfirmButton: false,
+        allowOutsideClick: false,
+        allowEscapeKey: false
+      });
+
+      // Make the cancel request to the server.
+      fetch(`/cancelOrder/${orderId}`, {
+        method: 'POST',
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.message) {
+              swal.fire({
+                icon: "success",
+                text: data.message
+              }).then(() => {
+                window.location.reload();
+              });
+            }
+           else {
+            // Handle the case where the cancellation failed.
+            swal.fire({
+              icon: "error",
+              text: "Order cancellation failed."
+            });
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          swal.fire({
+            icon: "error",
+            text: "An error occurred while cancelling the order."
+          });
+        });
+    }
+  });
+}
+
+
+    </script>
+    <script>
+      function ReturnOrder(orderId)
+      {
+        console.log("OrderId :", orderId)
+        fetch(`/return/${orderId}`,({
+          method:"POST",
+        })).then((response)=>
+        {
+          if(response.status)
+          {
+            alert("Return Requested")
+            document.getElementById('return').style.backgroundColor = "green"
+          }
+        })
+        .catch((error)=>
+        {
+          if(response.status == 500)
+          {
+            alert("Error requesting return")
+          }
+        })
+      }
+    </script>
+
+    <script>
+      function toggleDropdown(menuId) {
+    var menu = document.getElementById(menuId);
+    if (menu.style.display === "block") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "block";
+    }
+    }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Addcoupon - ADMIN</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Coupon</title>
+
+     <link href="/Pictures/Admin/img/favicon.png" rel="icon">
+    <link href="/Pictures/Admin/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/Admin_vendor/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Admin_vendor/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/Admin_vendor/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/Admin_vendor/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="/Admin_vendor/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="/Admin_vendor/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/Admin_vendor/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/CSS/Admin/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="/CSS/Admin/css/Add-product.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        /* Add your custom CSS styles here */
+         .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+         .container h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .mb-3 {
+            margin-bottom: 20px;
+        }
+
+        .text-danger {
+            color: #dc3545;
+        }
+        .btn-outline-info {
+            background-color: #17a2b8;
+            border-color: #17a2b8;
+            color: #fff;
+        }
+
+        .btn-outline-info:hover {
+            background-color: #138496;
+            border-color: #138496;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Add Coupon</h2>
+        <form id="formdata">
+            <div class="mb-3">
+                <label for="couponCode" class="form-label">Coupon Code</label>
+                <input type="text" id="couponName" name="couponName" class="form-control" value="" placeholder="Generate Coupon Code" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <button class="btn btn-info" id="buttonGenerate" type="button">Generate Code</button>
+                <p id="error1" class="text-danger"></p>
+            </div>
+            <div class="mb-3">
+                <label for="validity" class="form-label">Validity Date</label>
+                <input type="date" class="form-control" id="validity" name="validity" required>
+                <p id="error2" class="text-danger"></p>
+            </div>
+            <div class="mb-3">
+                <label for="minPurchase" class="form-label">Minimum Purchase</label>
+                <input type="number" class="form-control" id="minAmount" name="minAmount" required>
+                <p id="error3" class="text-danger"></p>
+            </div>
+            <div class="mb-3">
+                <label for="minDiscountPercentage" class="form-label">Discount Percentage</label>
+                <input type="number" class="form-control" id="discountPercentage" name="discountPercentage" required>
+                <p id="error4" class="text-danger"></p>
+            </div>
+            <div class="mb-3">
+                <label for="maxDiscountValue" class="form-label">Maximum Discount Value</label>
+                <input type="number" class="form-control" id="maxDiscountValue" name="maxDiscountValue" required>
+                <p id="error5" class="text-danger"></p>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                <p id="error6" class="text-danger"></p>
+            </div>
+            <button type="submit" class="btn btn-outline-info" id="validation">Submit</button>
+        </form>
+    </div>
+      <script src="/Admin_vendor/vendor/apexcharts/apexcharts.min.js"></script>
+        <script src="/Admin_vendor/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/Admin_vendor/vendor/chart.js/chart.umd.js"></script>
+        <script src="/Admin_vendor/vendor/echarts/echarts.min.js"></script>
+        <script src="/Admin_vendor/vendor/quill/quill.min.js"></script>
+        <script src="/Admin_vendor/vendor/simple-datatables/simple-datatables.js"></script>
+        <script src="/Admin_vendor/vendor/tinymce/tinymce.min.js"></script>
+        <script src="/Admin_vendor/vendor/php-email-form/validate.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="/public/js/Admin/js/main.js"></script>
+
+    <script>
+         document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('#formdata');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                console.log("Function started");
+                const formData = new FormData(form);
+
+                const couponName = formData.get('couponName').trim()
+                const validity = formData.get('validity').trim()
+                const minAmount = formData.get('minAmount').trim()
+                const discount = formData.get('discountPercentage').trim()
+                const maxDiscount = formData.get('maxDiscountValue').trim()
+                const description = formData.get('description').trim()
+                console.log(couponName, validity, minAmount, discount,maxDiscount, description)
+
+                const error1 = document.querySelector('#error1');
+                const error2 = document.querySelector('#error2');
+                const error3 = document.querySelector('#error3');
+                const error4 = document.querySelector('#error4');
+                const error5 = document.querySelector('#error5');
+                const error6 = document.querySelector('#error6');
+
+                error1.textContent = '';
+                error2.textContent = '';
+                error3.textContent = '';
+                error4.textContent = '';
+                error5.textContent = '';
+                error6.textContent = '';
+
+                let pass = 1;
+
+                if (couponName === '') {
+                    error1.textContent = "Coupon code required";
+                    pass = 2;
+                }
+                if (validity === '') {
+                    error2.textContent = 'Validity is required';
+                    pass = 2;
+                }
+                if (minAmount === '') {
+                    error3.textContent = 'Minimum amount is required';
+                    pass = 2;
+                }
+                if (minAmount < 0) {
+                    error3.textContent = 'Minimum amount should be greater than or equal to zero';
+                    pass = 2;
+                }
+                if (discount === '') {
+                    error4.textContent = 'Discount percentage is required';
+                    pass = 2;
+                }
+                if (discount <= 0 || discount >= 100) {
+                    error4.textContent = 'Discount percentage should be between 1 and 99';
+                    pass = 2;
+                }
+                if (maxDiscount === '') {
+                    error5.textContent = 'Maximum discount is required';
+                    pass = 2;
+                }
+                if (maxDiscount <= 0) {
+                    error5.textContent = 'Maximum discount should be greater than zero';
+                    pass = 2;
+                }
+                if (description === '') {
+                    error6.textContent = 'Description is required';
+                    pass = 2;
+                }
+
+                if (pass === 1) {
+                    submit(couponName, validity, minAmount, discount, maxDiscount, description);
+                }
+            });
+        });
+
+        function submit(couponCode, validity, minAmount, discount, maxDiscount, description) {
+            console.log(couponCode, validity, minAmount, discount, maxDiscount, description);
+
+            $.ajax({
+                url: '/admin/postCoupon',
+                method: "POST",
+                data: {
+                    couponCode: couponCode,
+                    validity: validity,
+                    minAmount: minAmount,
+                    discount: discount,
+                    maxDiscount: maxDiscount,
+                    description: description
+                },
+                success: (Response) => {
+                    if (Response.status) {
+                        alert("Coupon Created");
+                        console.log(Response);
+                        location.reload()
+                    }
+                },
+                error: (error) => {
+                    alert("Cannot Create Coupon");
+                    console.log(error);
+                }
+            })
+        }
+    </script>
+    <script>
+       
+       document.getElementById('buttonGenerate').addEventListener('click', function(e)
+       {
+        e.preventDefault()
+        console.log("reached")
+        console.log("sending request");
+        $.ajax({
+            url: '/admin/Generate',
+            method: "GET",
+            success: (response) => {
+                if (response.status) {
+                    document.getElementById('couponName').value = response.couponcode;
+                }
+            }
+        });
+       })
+       
+       function generateCoupon() {
+        
+    }
+    
+    </script>
+</body>
+</html>

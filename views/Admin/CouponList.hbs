@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Coupon - Admin</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/Pictures/Admin/img/favicon.png" rel="icon">
+  <link href="/Pictures/Admin/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/Admin_vendor/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/Admin_vendor/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/Admin_vendor/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/Admin_vendor/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="/Admin_vendor/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="/Admin_vendor/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/Admin_vendor/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/CSS/Admin/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="/CSS/Admin/css/Add-product.css">
+
+      <style>
+    /* Inline styles specific to this template */
+    @font-face {
+            font-family: audiowide;
+            src: url(../fonts/Audiowide-Regular.ttf);
+        }
+    .card {
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        margin: 20px auto;
+        max-width: 924px;
+        padding: 10px;
+        margin-top: 67px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .image-hover {
+      transition: transform 0.2s; /* Add a smooth transition effect */
+    }
+
+    .image-hover:hover {
+      transform: scale(1.2); /* Enlarge the image on hover (adjust the scale value as needed) */
+    }
+    .lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    text-align: center;
+    z-index: 9999;
+    overflow: hidden;
+  }
+
+  /* Enlarged Image */
+  #enlarged-image {
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+    display: block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Close Button */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+  }
+
+  .close:hover {
+    color: #ccc;
+  }
+
+      .modal-container {
+            position: relative;
+        }
+
+        .modal.fade.right .modal-dialog {
+            right: 0;
+            transform: translate3d(25%, 0, 0);
+        }
+
+        .modal.right .modal-dialog {
+            right: 0;
+            margin-right: 10px; /* Adjust this value as needed */
+        }
+
+        /* Add a scrollbar for the modal content if it overflows */
+        .modal.right .modal-content {
+            overflow-y: auto;
+        }
+    .card-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .search-container {
+      margin-bottom: 20px;
+    }
+
+    .search-input {
+      padding: 10px;
+      width: 70%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .search-button {
+      padding: 10px;
+      border-radius: 5px;
+      margin-left: 10px;
+    }
+    .container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px; 
+  }
+
+    .table-container {
+      overflow-x: auto;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .table th,
+    .table td {
+      padding: 10px;
+      border-bottom: 1px solid #b0b0b0;
+    }
+
+    .table th {
+      background-color: #f8f8f8;
+      font-weight: bold;
+    }
+
+    .img-container img {
+      max-width: 70px;
+      max-height: 70px;
+    }
+
+    .modal-title {
+      font-size: 20px;
+    }
+
+    .modal-body p {
+      margin: 0;
+    }
+
+    .modal-footer {
+      border-top: none;
+    }
+
+    .btn-primary,
+    .btn-danger,
+    .btn-success {
+      margin-top: 5px;
+      max-width: 159px;
+      margin-right: -10rem;
+    }
+        /* Add your custom CSS styles here */
+        .content-main {
+            margin: 20px;
+        }
+
+        .content-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table th,
+        .table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            vertical-align: middle;
+        }
+
+        .table .btn {
+            margin: 0; /* Remove any margin applied to the button */
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+        }
+
+        .table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .text-end {
+            text-align: right;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: #fff;
+        }
+    </style>
+  </style>
+  
+</head>
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="/Pictures/Admin/img/logo.png" alt="">
+        <span class="d-none d-lg-block">ADMIN</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="/Pictures/profile/{{adminProfile.image}}" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{adminProfile.name}}</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>{{adminProfile.name}}</h6>
+              <span>{{adminProfile.job}}</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/admin/profile">
+                <i class="bi bi-person"></i>
+                <span>My Profile</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/admin/logout">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav" style="font-family: 'Open Sans'; margin-top: 62px;">
+      <li class="nav-item">
+        <a class="nav-link " href="/admin/home">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/admin/category">
+          <i class="bi bi-menu-button-wide"></i><span>Category</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+      </li><!-- End Components Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/admin/orders">
+          <i class="bi bi-journal-text"></i><span>Order</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/admin/addProducts">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Add Products</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+      </li><!-- End Tables Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/admin/userview">
+          <i class="bi bi-bar-chart"></i><span>Users</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+      </li><!-- End Charts Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed"  href="/admin/products">
+          <i class="bi bi-gem"></i><span>Manage products</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+      </li><!-- End Icons Nav -->
+
+      <li class="nav-heading">Pages</li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/admin/couponList">
+          <i class="bi bi-person"></i>
+          <span>Coupon Management</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/admin/UPGames">
+          <i class="bi bi-person"></i>
+          <span>Upcoming Games Add</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/admin/banner">
+          <i class="bi bi-question-circle"></i>
+          <span>Banner Management</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/admin/Referral">
+          <i class="bi bi-envelope"></i>
+          <span>Referral Code Management</span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+<section class="content-main">
+    <div class="content-header">
+        <h2 class="content-title">Coupons</h2>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <header class="border-bottom mb-4 pb-4">
+                        <div class="row">
+                            <div class="col-lg-5 col-6">
+                            </div>
+                            <div class="col-lg-5 col-6 d-flex justify-content-end">
+                                <a href="/admin/addCoupons" class="btn btn-primary">Add a Coupon</a>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="myTable">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Coupon Code</th>
+                                    <th>Min Purchase Amount</th>
+                                    <th>Discount %</th>
+                                    <th>Max Discount Amount</th>
+                                    <th>Expiry Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each coupons}}
+                                    <tr>
+                                        <td>{{increase @index}}</td>
+                                        <td>{{this.couponCode}}</td>
+                                        <td>{{this.minPurchase}}</td>
+                                        <td>{{this.minDiscountPercentage}}%</td>
+                                        <td>₹{{this.maxDiscountValue}}</td>
+                                        <td>{{this.validity}}</td>
+                                        <td>
+                                            <button class="btn btn-danger" onclick="removeCoupon('{{this._id}}')">Remove</button>
+                                        </td>
+                                    </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Include your Handlebars.js helper function to format dates if needed -->
+    <script>
+        Handlebars.registerHelper('formatDate', function(date) {
+            return new Date(date).toDateString();
+        });
+    </script>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/Admin_vendor/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="/Admin_vendor/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/Admin_vendor/vendor/chart.js/chart.umd.js"></script>
+  <script src="/Admin_vendor/vendor/echarts/echarts.min.js"></script>
+  <script src="/Admin_vendor/vendor/quill/quill.min.js"></script>
+  <script src="/Admin_vendor/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="/Admin_vendor/vendor/tinymce/tinymce.min.js"></script>
+  <script src="/Admin_vendor/vendor/php-email-form/validate.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
+  <!-- Template Main JS File -->
+  <script src="/public/js/Admin/js/main.js"></script>
+  <script>
+    const toggleBtn = document.querySelector('.toggle-sidebar-btn');
+    const sidebar = document.querySelector('#sidebar');
+
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('sidebar-open');
+    });
+  </script>
+<script>
+  function removeCoupon(couponId) {
+  Swal.fire({
+    title: 'Delete coupon',
+    text: 'Are you sure you want to delete this Coupon?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!',
+    cancelButtonText: 'Cancel',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      fetch(`/admin/delete?id=${couponId}`, {
+        method: 'DELETE',
+      })
+        .then((response) => {
+          if (response.ok) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Success',
+              text: 'The item has been successfully deleted.',
+            }).then(() => {
+              location.reload();
+            });
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'An error occurred while deleting the item.',
+            });
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    }
+  });
+}
+
+</script>
+
+</body>
+
+</html>

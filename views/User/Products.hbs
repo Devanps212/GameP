@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Basic -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site Metas -->
+    <title>GAMPro</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="/Pictures/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/Pictures/images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/CSS/css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/CSS/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/CSS/css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/CSS/css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<style>
+  @font-face {
+       font-family: audiowide;
+        src: url(../fonts/Audiowide-Regular.ttf);
+}
+    body
+        {background: rgb(251,251,251);
+         background: linear-gradient(0deg, rgba(251,251,251,1) 0%, rgba(217,229,255,1) 59%, rgba(192,208,244,1) 100%);
+        }
+  .card:last-child {
+    margin-bottom: 50px; /* Adjust the value to control the spacing */
+  }
+  .card {
+    width: 18rem;
+    box-shadow: 0px 0px 6px -2px grey;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: scale(0.98); /* Decrease the size slightly on hover */
+  }
+  .attr-nav .search form {
+  display: flex;
+  align-items: center;
+}
+.navbar-nav .nav-item.active a.nav-link {
+        color: #b0b435!important;
+    }
+
+/* Style for the search input field */
+.attr-nav .search input[type="text"] {
+  border: none;
+  border-bottom: 2px solid #333; /* Bottom border style */
+  padding: 8px 12px;
+  margin-right: 10px;
+  font-size: 16px;
+  outline: none; /* Remove the input outline on focus */
+  transition: border-color 0.3s ease; /* Add a smooth transition for the border color */
+  width: 0; /* Start with zero width */
+}
+
+/* Style for the search input field when focused */
+.attr-nav .search input[type="text"]:focus {
+  border-color: #007BFF; /* Change the border color on focus */
+  width: 200px; /* Expand the input field width */
+}
+
+/* Style for the search icon button */
+.attr-nav .search button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for the search icon */
+.attr-nav .search i.fa-search {
+  font-size: 24px;
+  color: #333;
+}
+
+/* Style for the badge */
+.attr-nav .badge {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+/* Style for the select element */
+#sortSelect {
+  padding: 8px 16px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* Style for the option items */
+#sortSelect option {
+  padding: 8px 16px;
+}
+
+/* Style for the select container */
+.container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Style for the label text */
+.container p {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.search {
+  margin-left: 16px;
+  position: relative;
+}
+
+.search input[type="text"] {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  width: 200px; /* Adjust the width as needed */
+  outline: none;
+}
+
+.search button {
+  background-color: #007bff; /* Change the button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/* Hover effect for the button */
+.search button:hover {
+  background-color: #0056b3; /* Change the button color on hover */
+}
+.containers
+{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+/* Style the current page link */
+.page-item:nth-child(${currentPage}) a {
+  /* Add your styling for the current page link here */
+  background-color: #f00; /* Change background color for the current page */
+  color: #fff; /* Change text color for the current page */
+}
+ .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style for the button that opens the dropdown */
+.dropdown-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* Add hover effect for the button */
+.dropdown-button:hover {
+    background-color: #2980b9;
+}
+
+/* Style for the dropdown options */
+.dropdown-options {
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 10;
+    min-width: 100px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for each option */
+.dropdown-options li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ccc;
+    background: rgb(255,255,255);
+    background: linear-gradient(191deg, rgba(255,255,255,1) 0%, rgba(210,210,210,1) 49%, rgba(255,250,250,1) 100%);
+    font-family: sans-serif;
+}
+
+/* Show the options when the button is clicked */
+.dropdown.active .dropdown-options {
+    display: block;
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+/* Add a nice fade-in effect for the options */
+.dropdown-options li {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Show the options with a fade-in effect */
+.dropdown.active .dropdown-options li {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+
+</head>
+
+
+
+<body>
+  {{#if successMessage}}
+    <div class="alert alert-success" id="successMessage">
+      {{successMessage}}
+    </div>
+  {{/if}}
+  <script>
+    // Hide the success message after 5 seconds (5000 milliseconds)
+    setTimeout(() => {
+      const successMessage = document.getElementById('successMessage');
+      if (successMessage) {
+        successMessage.style.display = 'none';
+      }
+    }, 5000);
+  </script>
+
+
+    <!-- Start Main Top -->
+    <div class="main-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="right-phone-box">
+                        <p>Call US :- <a href="#"> +11 900 800 100</a></p>
+                    </div>
+                    <div class="our-link">
+                        <ul>
+                            {{#if ifAuthenticated}}
+                            <li><a href="/Account"><i class="fa fa-user s_color"></i> My Account</a></li>
+                            {{/if}}
+                            <li><a href="/contactUs"><i class="fas fa-headset"></i> Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                    <div class="login-box">
+                 {{#if ifAuthenticated}}
+                    <a href="/logout" class="btn btn-primary">SignOut</a>
+                          {{else}}
+                              <div class="login-box">
+                                  <div class="dropdown">
+                                      <button class="dropdown-button">Login or signUp</button>
+                                      <ul class="dropdown-options">
+                                          <li><a href="/login">Login</a></li>
+                                          <li><a href="/signin">Signup</a></li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          {{/if}}
+              </div>
+
+                </div>
+            </div>
+        </div> 
+        
+    </div>
+    <!-- End Main Top -->
+
+    <!-- Start Main Top -->
+    <header class="main-header">
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav" style="padding: 0px;">
+            <div class="container">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                    <a class="navbar-brand" href="/"><img src="/Pictures/gampro-high-resolution-color-logo.png" class="logo" style="display:flex; justify-content:center; align-items:center;border-radius: 53px; width:102px;" alt=""></a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/aboutus">About Us</a></li>
+                        {{#if ifAuthenticated}}
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
+                                <ul class="dropdown-menu">
+                            <li><a href="/ewallet">E-Wallet</a></li>
+                                            <li><a href="/products">Games</a></li>
+                                        </ul>
+                            </li>
+                        {{else}}
+                               <li class="nav-item"> <!-- Added a new container for non-authenticated users -->
+                                    <a href="/products" class="nav-link">SHOP</a>
+                                </li>
+                        {{/if}}
+                        {{!-- <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li> --}}
+                        <li class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Category</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/openworld">Open World</a></li>
+                                <li><a href="/FPS">FPS</a></li>
+                                <li><a href="/racing">Racing</a></li>
+                                {{!-- <li><a href="checkout.html">Checkout</a></li>
+                                <li><a href="my-account.html">My Account</a></li>
+                                <li><a href="wishlist.html">Wishlist</a></li> --}}
+                            </ul>
+                        </li>
+                        {{#if ifAuthenticated}}
+                        <li class="nav-item"><a class="nav-link" href="/wishlists">Wish List</a></li>
+                        {{/if}}
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+
+                <!-- Start Atribute Navigation -->
+                <div class="attr-nav">
+                <ul>
+                    <li class="side-menu">
+                        <a href="/cart">
+                            <i class="fa fa-shopping-bag"></i>
+                            {{#if ifAuthenticated}}
+                            <span class="badge">{{cartNumber}}</span>
+                            {{/if}}
+                            <p>My Cart</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+                <!-- End Atribute Navigation -->
+            </div>
+            <!-- Start Side Menu -->
+            <div class="side">
+                <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+                <li class="cart-box">
+                    <ul class="cart-list">
+                        <li>
+                            <a href="#" class="photo"><img src="/Pictures/images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Delica omtantur </a></h6>
+                            <p>1x - <span class="price">$80.00</span></p>
+                        </li>
+                        <li>
+                            <a href="#" class="photo"><img src="/Pictures/images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Omnes ocurreret</a></h6>
+                            <p>1x - <span class="price">$60.00</span></p>
+                        </li>
+                        <li>
+                            <a href="#" class="photo"><img src="/Pictures/images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Agam facilisis</a></h6>
+                            <p>1x - <span class="price">$40.00</span></p>
+                        </li>
+                        <li class="total">
+                            <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                            <span class="float-right"><strong>Total</strong>: $180.00</span>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+            <!-- End Side Menu -->
+        </nav>
+        <!-- End Navigation -->
+    </header>
+    <!-- End Main Top -->
+    <!-- End Top Search -->
+    
+     <div class="bg-dark text-light p-2 mb-3" style="height:75px;letter-spacing: 4px;">
+        <h2 style="color:white;text-align:center;font-family:audiowide;margin-top:14px;">FPS</h2>
+      </div>
+    <div class="container">
+  <div class="row">
+    <div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <p>Sort by Price:</p>
+      <select id="sortSelect" class="form-select">
+        <option value="/products/?sort=price_asc">Low to High</option>
+        <option value="/products/?sort=price_desc">High to Low</option>
+      </select>
+      <script>
+        const sortSelect = document.getElementById('sortSelect');
+        // Get the current URL
+        const currentURL = window.location.href;
+
+        // Check if the URL contains "price_desc" to select the appropriate option
+        if (currentURL.includes("price_desc")) {
+          sortSelect.value = "/products/?sort=price_desc";
+        } else {
+          sortSelect.value = "/products/?sort=price_asc";
+        }
+
+        sortSelect.addEventListener('change', function() {
+          const selectedOption = this.options[this.selectedIndex];
+          const selectedValue = selectedOption.value;
+          window.location.href = selectedValue;
+        });
+      </script>
+    </div>
+    <li class="search">
+        <form action="/products" style="margin-left: 16px;" method="GET">
+            <input type="text" name="search" placeholder="Search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </li>
+  </div>
+</div>
+
+
+    {{#each product}}
+      <div class="col-md-4 ml-auto">
+        <div class="card" style="width: 18rem;box-shadow: 0px 0px 6px -2px grey;margin-top: 36px;">
+          <a href="/productDetail/{{this._id}}">
+          <img class="card-img-top" src="/Pictures/Home_Buy/{{image.[0]}}" alt="Card image cap">
+          </a>
+          <div class="card-body">
+            <h4 class="card-title">{{this.name}}</h4>
+            <p class="card-text">{{Limit this.description 90}}</p>
+            
+            <!-- Yellow Star Ratings -->
+            <div class="star-ratings">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9734;</span>
+            </div>
+            
+            <!-- Regular Price in Rupees -->
+            <h3 class="card-text"><strong>Regular Price:</strong>₹{{this.price}}</h3>
+            
+            <!-- Offer Price in Rupees -->
+            <h3 class="card-text"><strong>Offer Price:</strong> ₹{{this.offerprice}}</h3>
+            
+            <!-- Add to Cart Button -->
+            <button class="btn btn-primary" onclick="addtocart('{{this._id}}')">
+              <span class="ti-bag"></span>
+               Add to Cart
+            </button>
+            
+            <!-- Buy Now Button -->
+            <a href="/Buynow/{{this.id}}" class="btn btn-success" style="width: 131px;">
+              <span class="ti-bag"></span>
+              Buy Now
+            </a>
+            
+            <a id="wishlist" href="" data-product-id="{{this._id}}" style="display: inline-block;">
+                <i class="fas fa-heart" style="vertical-align: middle;font-size: 18px;margin-top: 6px;margin: 0px;margin-left: 11px;"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+   </div>
+ </div>
+ <div class="containers">
+  {{{pagination currentpage totalPage searchQuery sort}}}
+</div>
+
+
+
+    <!-- Start Footer  -->
+    <footer>
+        <div class="footer-main">
+            <div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-top-box">
+							<h3>Business Time</h3>
+							<ul class="list-time">
+								<li>Monday - Friday: 08.00am to 05.00pm</li> <li>Saturday: 10.00am to 08.00pm</li> <li>Sunday: <span>Closed</span></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-top-box">
+							<h3>Newsletter</h3>
+							<form class="newsletter-box">
+								<div class="form-group">
+									<input class="" type="email" name="Email" placeholder="Email Address*" />
+									<i class="fa fa-envelope"></i>
+								</div>
+								<button class="btn hvr-hover" type="submit">Submit</button>
+							</form>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-top-box">
+							<h3>Social Media</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<ul>
+                                <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
+                            </ul>
+						</div>
+					</div>
+				</div>
+				<hr>
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-widget">
+                            <h4>About Freshshop</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> 							
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-link">
+                            <h4>Information</h4>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Customer Service</a></li>
+                                <li><a href="#">Our Sitemap</a></li>
+                                <li><a href="#">Terms &amp; Conditions</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Delivery Information</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-link-contact">
+                            <h4>Contact Us</h4>
+                            <ul>
+                                <li>
+                                    <p><i class="fas fa-map-marker-alt"></i>Address: Michael I. Days 3756 <br>Preston Street Wichita,<br> KS 67213 </p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+1-888705770">+1-888 705 770</a></p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-envelope"></i>Email: <a href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer  -->
+
+    <!-- Start copyright  -->
+    <div class="footer-copyright">
+        <p class="footer-company">All Rights Reserved. &copy; 2018 <a href="#">ThewayShop</a> Design By :
+            <a href="https://html.design/">html design</a></p>
+    </div>
+    <!-- End copyright  -->
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+    <!-- ALL JS FILES -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/jquery.superslides.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/inewsticker.js"></script>
+    <script src="js/bootsnav.js."></script>
+    <script src="js/images-loded.min.js"></script>
+    <script src="js/isotope.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/baguetteBox.min.js"></script>
+    <script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/JS/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    
+        <script>
+	function addtocart(productId) {
+	  $.ajax({
+		url: '/add-to-cart/' + productId,
+		method: 'POST',
+  
+		success: (response) => {
+  if (response.status === true) {
+    // Show success message
+    Swal.fire({
+      title: 'Added To Cart',
+      text: 'Your Product has been added to Cart',
+      icon: 'success',
+      timer: 5000
+    })
+  }
+}
+})
+}
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const wishlistLinks = document.querySelectorAll('[data-product-id]');
+
+    wishlistLinks.forEach(function(wlist) {
+      const productId = wlist.getAttribute('data-product-id');
+      const heartIcon = wlist.querySelector('i.fa-heart');
+      const isRed = localStorage.getItem(`wishlist_${productId}`) === 'true';
+
+      if (isRed) {
+        heartIcon.style.color = 'red';
+      }
+
+      wlist.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const productId = this.getAttribute('data-product-id');
+        const heartIcon = this.querySelector('i.fa-heart');
+        const isRed = localStorage.getItem(`wishlist_${productId}`) === 'true';
+
+        const method = isRed ? 'DELETE' : 'POST';
+
+        fetch(`/wishlist/${productId}`, {
+          method: method,
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+          .then(response => {
+            if (response.ok) {
+              if (isRed) {
+                alert("Removed from wishlist");
+                heartIcon.style.color = '';
+                localStorage.removeItem(`wishlist_${productId}`);
+              } else {
+                alert("Added to wishlist");
+                heartIcon.style.color = 'red';
+                localStorage.setItem(`wishlist_${productId}`, 'true');
+              }
+
+              console.log('Product wishlist status updated successfully!');
+            } else {
+              response.json().then(data => {
+                if (data.message) {
+                  alert(data.message);
+                } else {
+                  alert("Can't add the product to wishlist");
+                }
+              });
+              console.error('Error wishlisting the product');
+            }
+          })
+          .catch(error => {
+            console.error('Network error:', error);
+          });
+      });
+    });
+  });
+</script>
+<script>
+ $(document).ready(function() {
+    // Function to toggle the navbar collapse
+    function toggleNavbarCollapse() {
+        $('.navbar-collapse').toggleClass('show');
+    }
+
+    // Attach a click event handler to the navbar toggler button
+    $('.navbar-toggler').click(function() {
+        toggleNavbarCollapse();
+    });
+
+    // Your other JavaScript code here...
+
+    // Optionally, you can reinitialize the navbar when sorting
+    // Example:
+    // $('#sortButton').click(function() {
+    //     // Your sorting code here...
+    //     toggleNavbarCollapse(); // Reinitialize the navbar
+    // });
+});
+
+
+</script>
+
+</body>
+
+</html>

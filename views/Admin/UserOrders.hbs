@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Orders</title>
+    <style>
+        /* Custom CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: #FFFFF0;
+            background-size: cover;
+        }
+        .header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 25px;
+            color: white;
+            text-align: center;
+        }
+        .orders-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .order {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            width: 63rem;
+        }
+        .order:hover {
+            transform: scale(1.02);
+        }
+        .order h2 {
+            color: #333;
+            font-size: 20px;
+            margin-top: 0;
+        }
+        .order ul {
+            list-style: none;
+            padding: 0;
+        }
+        .order li {
+            margin: 5px 0;
+        }
+        .order strong {
+            font-weight: bold;
+            color: #555;
+        }
+        .centered-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Centers content vertically */
+            margin-top: -137px
+        }
+
+        .centered-image img {
+            width: 267px;
+            height: 251px;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 style="font-size: 28px;">User Orders</h1>
+    </div>
+    <div class="orders-container">
+        {{#if orders}}
+        {{#each orders}}
+            {{#if items.length}} <!-- Only render orders with items -->
+            <div class="order">
+                <h2 style="font-size: 18px;">User: {{user.name}}</h2>
+                <ul>
+                    {{#each items}}
+                    <li>
+                        <strong style="font-size: 16px;">Product Name:</strong> {{productId.name}}<br>
+                        <strong style="font-size: 16px;">Quantity:</strong> {{quantity}}<br>
+                        <strong style="font-size: 16px;">Total: ${{total}}</strong>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            {{/if}}
+        {{/each}}
+         {{else}}
+           <div class="centered-content">
+            <div class="centered-image">
+                <img src="/Pictures/images/Icons/—Pngtree—empty box icon for your_4814103.png" alt="No Orders Found">
+                </div>
+                <div class="title">No Orders Found</div>
+           </div>
+        {{/if}}
+    </div>
+</body>
+</html>

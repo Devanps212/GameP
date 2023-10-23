@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Basic -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site Metas -->
+    <title>GAMPro</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    {{!-- <link rel="shortcut icon" href="/Pictures/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/Pictures/images/apple-touch-icon.png"> --}}
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/CSS/css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/CSS/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/CSS/css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/CSS/css/custom.css">
+    <link rel="stylesheet" href="/CSS/MyAccount.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+ <style>
+    .text-muted
+    {
+        color: black !important;
+    }
+     .active {
+       color: #b0b435!important;
+    }
+
+.address-item {
+  position: relative;
+  /* Add some padding to create space for the button */
+  padding-bottom: 30px;
+}
+.edit-button-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+#socialIcons {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 100;
+            animation: fade-in 0.3s ease-in-out;
+        }
+
+        #socialIcons i {
+            font-size: 24px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        /* Animation keyframes */
+        @keyframes fade-in {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        #referButton {
+    background-color: #007BFF; /* Background color */
+    color: #fff; /* Text color */
+    padding: 10px; /* Padding to make it round */
+    border: none; /* Remove border */
+    border-radius: 50%; /* Make it round */
+    font-size: 24px; /* Font size of the icon */
+    cursor: pointer; /* Cursor on hover */
+    transition: background-color 0.3s ease-in-out; /* Smooth background color transition */
+    display: flex; /* Center the icon vertically */
+    align-items: center; /* Center the icon horizontally */
+    justify-content: center; /* Center the icon horizontally */
+    width: 40px; /* Adjust the width and height to your preference */
+    height: 40px;
+}
+
+#referButton:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+}
+
+/* You can change the icon's color and size by targeting the 'i' element */
+#referButton i {
+    color: inherit; /* Inherit the text color (white) */
+    font-size: inherit; /* Inherit the font size (24px) */
+}
+/* Card Styles */
+.profile-card {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #007bff;
+  transition: transform 0.3s;
+}
+
+.profile-image:hover {
+  transform: scale(1.1);
+}
+
+.share-code-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.share-code-card:hover {
+  transform: scale(1.03);
+}
+
+/* Share Button */
+.share-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.share-button:hover {
+  background-color: #0056b3;
+}
+
+/* Social Icons */
+#socialIcons {
+  font-size: 24px;
+  margin: 10px;
+}
+
+#socialIcons i {
+  margin: 10px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+#socialIcons i:hover {
+  color: #007bff;
+}
+
+/* Address List */
+.address-list {
+  padding: 20px;
+}
+
+.address-item {
+  margin: 20px 0;
+  border: 1px solid #c3c3c3;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f1fbf7;
+  transition: transform 0.3s;
+}
+
+.address-item:hover {
+  transform: scale(1.02);
+}
+
+.edit-button-container {
+  text-align: right;
+}
+/* Animation for modal */
+.fade-in {
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.openModalButton
+{
+    border-radius: 7px;
+    padding: 4px;
+    margin: 5px;
+    color: white;
+    background: rgb(0,153,252);
+    background: linear-gradient(90deg, rgba(0,153,252,1) 0%, rgba(0,69,255,1) 100%);
+    font-family: sans-serif;
+}
+/* styles.css */
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 9% auto; /* Adjust the margin to control the vertical positioning */
+    padding: 10px;
+    border: 1px solid #888;
+    width: 30%;
+    height: auto; /* Remove height to allow content to determine the height */
+    max-height:80%; /* Set a maximum height */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Close button */
+button.close {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: end;
+}
+
+button.close::before {
+    content: "\00D7"; /* Unicode character for '×' */
+}
+
+/* Form styling (optional) */
+form {
+    margin: 0;
+    padding: 0;
+}
+
+label {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px; /* Adjust the font size as needed */
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px; /* Adjust the font size as needed */
+    font-weight: 700;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 5px; /* Adjust the padding for the button */
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px; /* Adjust the font size as needed */
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+.deleteAddress{
+    background: rgb(255,96,52);
+    background: linear-gradient(90deg, rgba(255,96,52,1) 0%, rgba(246,0,0,1) 100%);
+    border-radius: 7px;
+    padding: 4px;
+    margin: 5px;
+    color: white;
+    font-family: sans-serif;
+}
+
+
+
+
+/* You can further customize the button styles as needed */
+
+ </style>
+</head>
+
+<body style="color: black;">
+    <!-- Start Main Top -->
+    <div class="main-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="right-phone-box">
+                        <p>Call US :- <a href="#"> +11 900 800 100</a></p>
+                    </div>
+                    <div class="our-link">
+                        <ul>
+                            <li><a id="myAccountLink" href="/Account"><i class="fa fa-user s_color"></i> My Account</a></li>
+                            <li><a href="/contactUs"><i class="fas fa-headset"></i> Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="login-box">
+                 <a id="logoutButton" class="btn btn-primary" href="/logout">Sign Out</a>
+              </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Main Top -->
+
+    <!-- Start Main Top -->
+    <header class="main-header">
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+            <div class="container">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                    <a class="navbar-brand" href="/"><img src="/Pictures/gampro-high-resolution-color-logo.png"  style="display:flex; justify-content:center; align-items:center;border-radius: 53px; width:102px;" class="logo" alt=""></a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+					<ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+						<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="/aboutus">About Us</a></li>
+						<li class="dropdown">
+							<a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
+							<ul class="dropdown-menu">
+								<li><a href="/ewallet">E-Wallet</a></li>
+								<li><a href="/products">Games</a></li>
+							</ul>
+						</li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Category</a>
+                            <ul class="dropdown-menu">
+								<li><a href="/openworld">Open World</a></li>
+								<li><a href="/FPS">FPS</a></li>
+                                <li><a href="/racing">Racing</a></li>
+                                {{!-- <li><a href="checkout.html">Checkout</a></li>
+                                <li><a href="my-account.html">My Account</a></li>
+                                <li><a href="wishlist.html">Wishlist</a></li> --}}
+                            </ul>
+                        </li>
+						
+                        <li class="nav-item"><a class="nav-link" href="/wishlists">Wish List</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+
+                <!-- Start Atribute Navigation -->
+                <div class="attr-nav">
+                    <ul>
+                        <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+                        <li class="side-menu"><a href="/cart">
+						<i class="fa fa-shopping-bag"></i>
+                            <span class="badge">{{cartNumber}}</span>
+							<p>My Cart</p>
+					</a></li>
+                    </ul>
+                </div>
+                <!-- End Atribute Navigation -->
+            </div>
+            <!-- Start Side Menu -->
+            <div class="side">
+                <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+                <li class="cart-box">
+                    <ul class="cart-list">
+                        <li>
+                            <a href="#" class="photo"><img src="images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Delica omtantur </a></h6>
+                            <p>1x - <span class="price">$80.00</span></p>
+                        </li>
+                        <li>
+                            <a href="#" class="photo"><img src="images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Omnes ocurreret</a></h6>
+                            <p>1x - <span class="price">$60.00</span></p>
+                        </li>
+                        <li>
+                            <a href="#" class="photo"><img src="images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Agam facilisis</a></h6>
+                            <p>1x - <span class="price">$40.00</span></p>
+                        </li>
+                        <li class="total">
+                            <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                            <span class="float-right"><strong>Total</strong>: $180.00</span>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+            <!-- End Side Menu -->
+        </nav>
+        <!-- End Navigation -->
+    </header>
+    <!-- End Main Top -->
+
+    <!-- Start Top Search -->
+    <div class="top-search">
+        <div class="container">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control" placeholder="Search">
+                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+            </div>
+        </div>
+    </div>
+    <!-- End Top Search -->
+
+    <!-- Start All Title Box -->
+    <div class="all-title-box" style="padding: 32px !important;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>My Account</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Title Box -->
+
+    <section style="background-color: #eee;">
+  <div class="container py-5">
+
+    <div class="row">
+    <div class="col-lg-4">
+        <div class="card mb-4 profile-card">
+        <div class="card-body text-center">
+            <img src="/Pictures/profile/{{userData.profilePicture}}" alt="avatar" class="rounded-circle img-fluid profile-image">
+            <h5 class="my-3">{{userData.name}}</h5>
+            <p class="text-muted mb-1">{{userData.email}}</p>
+            <p class="text-muted mb-4">{{userData.address.city}}</p>
+        </div>
+        </div>
+        <div class="card mb-4 mb-lg-0 share-code-card" style="padding: 6px;">
+        <div class="card-body p-0">
+            <img style="width: 276px" src="/Pictures/images/Icons/1567580148.png" class="share-icon">
+            <h4 class="card-title text-center mt-3" style="font-weight: bold;">Share your code with a friend</h4>
+            <p style="font-family: sans-serif">Share your code with your friend to get ₹100 at the time of signup</p>
+            <br>
+            <div class="text-center share-buttons">
+            <button id="referButton" class="share-button">
+                <i class="fas fa-share"></i>
+            </button>
+            </div>
+        </div>
+        </div>
+        <div id="socialIcons">
+        <i class="fab fa-whatsapp" onclick="shareViaWhatsApp('{{userData.Referral_Code}}')"></i>
+        <i class="fas fa-envelope" onclick="sendEmail('{{userData.Referral_Code}}')"></i>
+        <i class="fas fa-sms" onclick="shareViaSMS('{{userData.Referral_Code}}')"></i>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div class="card mb-4" style="box-shadow: 0px 0px 7px #0000004d;">
+        <div class="card-body">
+            <div class="row">
+            <div class="col-sm-3">
+                <p class="mb-0">Full Name</p>
+            </div>
+            <div class="col-sm-9">
+                <p class="text-muted mb-0">{{userData.name}}</p>
+            </div>
+            </div>
+            <hr>
+            <div class="row">
+            <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+            </div>
+            <div class="col-sm-9">
+                <p class="text-muted mb-0">{{userData.email}}</p>
+            </div>
+            </div>
+            <hr>
+            <div class="row">
+            <div class="col-sm-3">
+                <p class="mb-0">Phone</p>
+            </div>
+            <div class="col-sm-9">
+                <p class="text-muted mb-0">{{userData.number}}</p>
+            </div>
+            </div>
+            <hr>
+            <hr>
+            <div class="row">
+            <div class="col-sm-3">
+                <p class="mb-0">Address</p>
+            </div>
+            <div class="col-sm-9">
+                <div class="address-list">
+                {{#each userData.address}}
+                <div class="address-item">
+                    <p class="text-muted mb-0">
+                    {{ increase @index}}. {{this.name}}<br>
+                    {{this.address}}<br>
+                    {{this.landmark}}, {{this.city}},{{this.state}}<br>
+                    {{this.district}}<br>
+                    {{this.pincode}}<br>
+                    {{this.mobile}}
+                    </p>
+                    <div class="edit-button-container">
+                    <button class="openModalButton" data-addres="{{this._id}}">Edit Address</button>
+                    <button class="deleteAddress" data-addres="{{this._id}}">Delete Address</button>
+                    </div>
+                </div>
+                {{/each}}
+                </div>
+            </div>
+            </div>
+            <div id="editAddressModal" class="modal">
+            <div class="modal-content">
+            <button class="close" id="closeModal"></button>
+            <form id="forms" method="POST">
+            <h2>Edit Address</h2>
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city">
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state">
+            <label for="pincode">Pincode:</label>
+            <input type="text" id="pincode" name="pincode">
+            <label for="landmark">Landmark:</label>
+            <input type="text" id="landmark" name="landmark">
+            <label for="district">District:</label>
+            <input type="text" id="district" name="district">
+            <label for="address">Address:</label>
+            <textarea id="address" name="address"></textarea>
+            <input type="hidden" id="ids">
+            <button type="submit" id="saveChangesButton">Save Changes</button>
+            </form>
+        </div>
+    </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</section>
+ <div id="popup-message" style="display: none;">
+        {{#if Mess}}
+            {{Mess}}
+        {{/if}}
+    </div>
+    <!-- Start My Account  -->
+    <div class="my-account-box-main">
+        <div class="container">
+            <div class="my-account-page">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12">
+                        <div class="account-box">
+                            <div class="service-box">
+                                <div class="service-icon">
+                                    <a href="/orderInfo"> <i class="fa fa-gift"></i> </a>
+                                </div>
+                                <div class="service-desc">
+                                    <h4>Your Orders</h4>
+                                    <p>Track, return, or buy things again</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="account-box">
+                            <div class="service-box">
+                                <div class="service-icon">
+                                    <a href="/ChangePassword"><i class="fa fa-lock"></i> </a>
+                                </div>
+                                <div class="service-desc">
+                                    <h4>Password Edit</h4>
+                                    <p>Change Password</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="account-box">
+                            <div class="service-box">
+                                <div class="service-icon">
+                                    <a href="/editAddress"> <i class="fa fa-location-arrow"></i> </a>
+                                </div>
+                                <div class="service-desc">
+                                    <h4>Edit Profile</h4>
+                                    <p>Edit profile for orders and gifts</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 col-md-12">
+                        <div class="account-box">
+                            <div class="service-box">
+                                <div class="service-icon">
+                                    <a href="/addAddress"> <i class="fa fa-location-arrow"></i> </a>
+                                </div>
+                                <div class="service-desc">
+                                    <h4>Create Addresses</h4>
+                                    <p>Add addresses for orders and gifts</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{!-- Paypal --}}
+
+                    {{!-- <div class="col-lg-4 col-md-12">
+                        <div class="account-box">
+                            <div class="service-box">
+                                <div class="service-icon">
+                                    <a href="#"> <i class="fab fa-paypal"></i> </a>
+                                </div>
+                                <div class="service-desc">
+                                    <h4>PayPal</h4>
+                                    <p>View benefits and payment settings</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
+
+                    {{!-- Amazon paybalance --}}
+
+                    {{!-- <div class="col-lg-4 col-md-12">
+                        <div class="account-box">
+                            <div class="service-box">
+                                <div class="service-icon">
+                                    <a href="#"> <i class="fab fa-amazon"></i> </a>
+                                </div>
+                                <div class="service-desc">
+                                    <h4>Amazon Pay balance</h4>
+                                    <p>Add money to your balance</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
+                </div>
+                <div class="bottom-box">
+                    <div class="row">
+                        {{!-- Gold and Jwellery --}}
+
+                        {{!-- <div class="col-lg-4 col-md-12">
+                            <div class="account-box">
+                                <div class="service-box">
+                                    <div class="service-desc">
+                                        <h4>Gold &amp; Diamond Jewellery</h4>
+                                        <ul>
+                                            <li> <a href="#">Apps and more</a> </li>
+                                            <li> <a href="#">Content and devices</a> </li>
+                                            <li> <a href="#">Music settings</a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+
+                        {{!-- Handloom --}}
+
+                        {{!-- <div class="col-lg-4 col-md-12">
+                            <div class="account-box">
+                                <div class="service-box">
+                                    <div class="service-desc">
+                                        <h4>Handloom &amp; Handicraft Store</h4>
+                                        <ul>
+                                            <li> <a href="#">Advertising preferences </a> </li>
+                                            <li> <a href="#">Communication preferences</a> </li>
+                                            <li> <a href="#">SMS alert preferences</a> </li>
+                                            <li> <a href="#">Message center</a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+                        {{!-- <div class="col-lg-4 col-md-12">
+                            <div class="account-box">
+                                <div class="service-box">
+                                    <div class="service-desc">
+                                        <h4>The Designer Boutique</h4>
+                                        <ul>
+                                            <li> <a href="#">Amazon Pay</a> </li>
+                                            <li> <a href="#">Bank accounts for refunds</a> </li>
+                                            <li> <a href="#">Coupons</a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="account-box">
+                                <div class="service-box">
+                                    <div class="service-desc">
+                                        <h4>Gift Boxes, Gift Tags, Greeting Cards</h4>
+                                        <ul>
+                                            <li> <a href="#">Leave delivery feedback</a> </li>
+                                            <li> <a href="#">Lists</a> </li>
+                                            <li> <a href="#">Photo ID proofs</a> </li>
+                                            <li> <a href="#">Profile</a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+                        
+                        {{!-- Other Accounts --}}
+
+                        {{!-- <div class="col-lg-4 col-md-12">
+                            <div class="account-box">
+                                <div class="service-box">
+                                    <div class="service-desc">
+                                        <h4>Other accounts</h4>
+                                        <ul>
+                                            <li> <a href="#">Amazon Business registration</a> </li>
+                                            <li> <a href="#">Seller account</a> </li>
+                                            <li> <a href="#">Amazon Web Services</a> </li>
+                                            <li> <a href="#">Login with Amazon</a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+                        {{!-- shipping programs --}}
+
+                        {{!-- <div class="col-lg-4 col-md-12">
+                            <div class="account-box">
+                                <div class="service-box">
+                                    <div class="service-desc">
+                                        <h4>Shopping programs and rentals</h4>
+                                        <ul>
+                                            <li> <a href="#">Subscribe &amp; Save</a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End My Account -->
+
+
+    <!-- Start Footer  -->
+    <footer>
+        <div class="footer-main">
+            <div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-top-box">
+							<h3>Business Time</h3>
+							<ul class="list-time">
+								<li>Monday - Friday: 08.00am to 05.00pm</li> <li>Saturday: 10.00am to 08.00pm</li> <li>Sunday: <span>Closed</span></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-top-box">
+							<h3>Newsletter</h3>
+							<form class="newsletter-box">
+								<div class="form-group">
+									<input class="" type="email" name="Email" placeholder="Email Address*" />
+									<i class="fa fa-envelope"></i>
+								</div>
+								<button class="btn hvr-hover" type="submit">Submit</button>
+							</form>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-top-box">
+							<h3>Social Media</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<ul>
+                                <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
+                            </ul>
+						</div>
+					</div>
+				</div>
+				<hr>
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-widget">
+                            <h4>About Freshshop</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> 							
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-link">
+                            <h4>Information</h4>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Customer Service</a></li>
+                                <li><a href="#">Our Sitemap</a></li>
+                                <li><a href="#">Terms &amp; Conditions</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Delivery Information</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-link-contact">
+                            <h4>Contact Us</h4>
+                            <ul>
+                                <li>
+                                    <p><i class="fas fa-map-marker-alt"></i>Address: Michael I. Days 3756 <br>Preston Street Wichita,<br> KS 67213 </p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+1-888705770">+1-888 705 770</a></p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-envelope"></i>Email: <a href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer  -->
+
+    <!-- Start copyright  -->
+    <div class="footer-copyright">
+        <p class="footer-company">All Rights Reserved. &copy; 2018 <a href="#">ThewayShop</a> Design By :
+            <a href="https://html.design/">html design</a></p>
+    </div>
+    <!-- End copyright  -->
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;line-height:23px">&uarr;</a>
+
+    <!-- ALL JS FILES -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/jquery.superslides.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/inewsticker.js"></script>
+    <script src="js/bootsnav.js."></script>
+    <script src="js/images-loded.min.js"></script>
+    <script src="js/isotope.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/baguetteBox.min.js"></script>
+    <script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+     <script>
+        // Check if there's a success message in the hidden element
+        const mess = document.getElementById('popup-message').textContent;
+         const successMessage = "{{mess}}"
+        if (successMessage) {
+            // Display the success message in a pop-up
+            alert(mess);
+        }
+        else
+        {
+              mess.style.display = 'none'; // Hide the element if no message
+            
+        }
+    </script>
+    <script>
+    // Get the current URL
+    const currentUrl = window.location.pathname;
+
+    // Get a reference to the "My Account" link
+    const myAccountLink = document.getElementById('myAccountLink');
+
+    // Check if the current URL matches "/Account"
+    if (currentUrl === '/Account') {
+        // Add the "active" class to the link
+        myAccountLink.classList.add('active');
+    }
+</script>
+<script>
+     function showSocialIcons() {
+            const socialIcons = document.getElementById('socialIcons');
+            if(socialIcons.style.display == 'none' || socialIcons.style.display == "")
+            {
+                socialIcons.style.display = 'block'
+            }
+            else
+            {
+                socialIcons.style.display = 'none'
+            }
+        }
+    document.getElementById('referButton').addEventListener('click', showSocialIcons);
+</script>
+<script>
+   function shareViaWhatsApp(referralCode) {
+    const message = `Use my referral code "${referralCode}" to sign up on GAMPro and get ₹100 on your wallet!`;
+    const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}`;
+    window.open(whatsappURL, "_blank");
+}
+
+function shareViaSMS(referralCode) {
+    const message = `Use my referral code "${referralCode}" to sign up on GAMPro and get ₹100 on your wallet!`;
+    const smsURL = `sms:?body=${encodeURIComponent(message)}`;
+    window.location.href = smsURL;
+}
+
+function sendEmail(refferalCode) {
+    // Replace with your email sharing code or URL
+    const emailSubject = "Check out this referral code!";
+    const emailBody = `Use my referral code "${refferalCode}" to sign up on GAMPro and get ₹100 on your wallet!`;
+    const emailLink = `mailto:?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    window.location.href = emailLink;
+}
+</script>
+<script>
+    const modalButton = document.querySelectorAll('.openModalButton')
+    const modal = document.getElementById('editAddressModal')
+    const closeButton = document.getElementById('closeModal')
+
+
+    modalButton.forEach(button =>
+    {
+        button.addEventListener('click', function()
+        {
+            const address = button.getAttribute("data-addres")
+            console.log(address)
+
+            fetch(`/addressData?addressId=${address}`,{
+                method:"GET"
+            }).then(response => response.json())
+            .then(data =>
+            {
+                const address = data.address[0];
+                document.getElementById('city').value = address.city;
+                document.getElementById('state').value = address.state;
+                document.getElementById('pincode').value = address.pincode;
+                document.getElementById('landmark').value = address.landmark;
+                document.getElementById('district').value = address.district;
+                document.getElementById('address').value = address.address;
+                document.getElementById('ids').value = address._id
+
+                modal.style.display = "block"
+            })
+            .catch(error =>
+            {
+                console.log(error.message)
+            })
+            
+        })
+    })
+
+    closeButton.addEventListener('click', function(e)
+    {
+        e.preventDefault()
+        modal.style.display = 'none';
+    })
+</script>
+<script>
+       const form = document.getElementById('forms');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const addressId = document.getElementById('ids').value;
+
+  // Create an object to represent the form data
+  const formData = {
+    city: document.getElementById('city').value,
+    state: document.getElementById('state').value,
+    pincode: document.getElementById('pincode').value,
+    landmark: document.getElementById('landmark').value,
+    district: document.getElementById('district').value,
+    address: document.getElementById('address').value,
+  };
+
+  fetch(`/editAddress?addressId=${addressId}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData), // Convert the object to JSON
+  })
+    .then(response => {
+      if (response.status === 200) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: 'Address added successfully.',
+        })
+      } else {
+        response.json().then(data => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: data.error,
+          });
+        });
+      }
+    })
+    .catch(error => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'An error occurred while adding the address.',
+      });
+    });
+});
+</script>
+<script>
+    const deleteButton = document.querySelectorAll('.deleteAddress')
+
+    deleteButton.forEach((buttons) => {
+        buttons.addEventListener('click', function () {
+            const addressId = buttons.dataset.address;
+            
+            
+            swal.fire({
+                icon: 'warning',
+                title: 'Are you sure?',
+                text: 'This action cannot be undone.',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // User confirmed, proceed with the fetch request
+                    fetch(`/deleteAddress?addressId=${addressId}`, {
+                        method: "GET"
+                    })
+                    .then((response) => {
+                        if (response.status == 200) {
+                            swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: 'Address deleted',
+                            }).then(() => {
+                                location.reload();
+                            });
+                        } else {
+                            swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'Can\'t delete the address'
+                            });
+                        }
+                    })
+                    .catch((error) => {
+                        swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Internal server error'
+                        });
+                    });
+                }
+            });
+        });
+    });
+
+</script>
+
+</body>
+
+</html>

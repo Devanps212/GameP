@@ -1,0 +1,139 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+.header_area {
+    background-color: #222;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.navbar {
+    background-color: #222;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 15px;
+}
+
+.navbar-nav .nav-item:last-child {
+    margin-right: 0;
+}
+
+/* Product Description Styles */
+.product_description_area {
+    background-color: #fff;
+    padding: 40px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.product_description_area h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.product_description_area p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Product List Styles */
+.best_seller .single_product {
+    background-color: #fff;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.best_seller .single_product img {
+    max-width: 100%;
+    height: auto;
+}
+
+.best_seller .single_product p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Newsletter Styles */
+.newsletter_part {
+    background-color: #f9f9f9;
+    padding: 60px 0;
+}
+
+.newsletter_form {
+    text-align: center;
+}
+
+.newsletter_form .input-group {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.newsletter_form .form-control {
+    border-radius: 0;
+    border-color: #ddd;
+}
+
+.newsletter_form .input-group-append button {
+    border-radius: 0;
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+/* Latest Blog Styles */
+.blog_part {
+    padding: 60px 0;
+}
+
+.single-home-blog .card {
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.single-home-blog .card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.single-home-blog .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.news_meta p {
+    font-size: 14px;
+    color: #777;
+}
+/* Larger Image Styles */
+.larger-image {
+    width: 100%; /* Adjust the width as needed */
+    height: auto;
+}
+
+/* Smaller Image Styles */
+.smaller-image {
+    width: 50%; /* Adjust the width as needed */
+    height: auto;
+}
+

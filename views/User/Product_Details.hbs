@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Basic -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site Metas -->
+    <title>Freshshop - Ecommerce Bootstrap 4 HTML Template</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon"  href="/Pictures/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/Pictures/images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/CSS/css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/CSS/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/CSS/css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/CSS/css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    {{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.1/toastify.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Add these scripts to your HTML, preferably in the <head> section -->
+
+
+
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style>
+.sticky-header-container {
+    width: 100%;
+    position: absolute;
+}
+
+.main-header {
+    position: fixed; /* Change 'sticky' to 'fixed' */
+    top: 0;
+    left: 0; /* Add 'left: 0;' to keep it on the left side */
+    right: 0; /* Add 'right: 0;' to keep it on the right side */
+    z-index: 1000;
+    background-color: #fff; /* Adjust background color as needed */
+}
+  .custom-nav-pills {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 0;
+  }
+
+  .custom-nav-pills .nav-item {
+    flex: 1;
+    text-align: center;
+  }
+  .navbar-nav .nav-item.active a.nav-link {
+        color: #b0b435!important;
+    }
+
+  .custom-nav-pills .nav-link {
+    border: none;
+    border-radius: 0;
+    padding: 15px 0;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .custom-nav-pills .nav-link.active {
+    background-color: #fff;
+    border-bottom: 2px solid #007bff;
+    color: #007bff;
+  }
+  .custom-width-div {
+    width: 90%; /* Adjust the percentage to your desired width */
+    margin: 0 5%; 
+}
+.cards {
+      background-color: #f5f5f5;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      margin: 0 auto;
+      text-align: left;
+      display: flex;
+      flex-direction: row;
+    }
+
+    /* Style for the form */
+    form {
+      text-align: left;
+      display: flex;
+      flex-direction: column; /* Stack elements vertically */
+      flex: 1;
+      margin-left: 33px;
+    }
+
+    /* Style for the title */
+    h2 {
+      font-size: 27px;
+      margin-bottom: 10px;
+      color: #333;
+      font-family: sans-serif;
+      font-weight: bold;
+    }
+
+    /* Style for the label */
+    label {
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    /* Style for the textarea and file input */
+    .input-group {
+      display: flex;
+      flex-direction: column; /* Display elements in a column */
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+      margin-bottom: 10px;
+      box-shadow: inset 2px 3px 9px 0px lightgrey;
+    }
+
+    /* Style for the file input */
+    input[type="file"] {
+      margin-top: 10px;
+    }
+
+    /* Style for the submit button */
+    .add-review-button {
+      background-color: #007BFF;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 6rem;
+    }
+
+    /* Style for the preview images container */
+    .image-preview-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    /* Style for each preview image */
+    .image-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+      width: 22rem;
+    }
+
+    .image-container img {
+      max-width: 214px;
+      max-height: 145px;
+      object-fit: contain;
+      margin-right: 5px;
+      border: solid;
+      padding: 2px;
+      border-width: 1px;
+    }
+    .containers {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+}
+
+.reviews {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.review-card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 48%);
+  padding: 20px;
+  flex-basis: calc(33.33% - 20px);
+  transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+}
+
+.review-header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-info h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+}
+
+.user-info p {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.review-content h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #333;
+}
+
+.review-content p {
+  font-size: 1rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .review-card {
+    flex-basis: calc(50% - 20px);
+  }
+}
+ .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style for the button that opens the dropdown */
+.dropdown-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* Add hover effect for the button */
+.dropdown-button:hover {
+    background-color: #2980b9;
+}
+
+/* Style for the dropdown options */
+.dropdown-options {
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 10;
+    min-width: 100px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for each option */
+.dropdown-options li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ccc;
+    background: rgb(255,255,255);
+    background: linear-gradient(191deg, rgba(255,255,255,1) 0%, rgba(210,210,210,1) 49%, rgba(255,250,250,1) 100%);
+    font-family: sans-serif;
+}
+
+/* Show the options when the button is clicked */
+.dropdown.active .dropdown-options {
+    display: block;
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+/* Add a nice fade-in effect for the options */
+.dropdown-options li {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Show the options with a fade-in effect */
+.dropdown.active .dropdown-options li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+</style>
+
+
+</head>
+
+
+
+<body>
+  {{#if successMessage}}
+    <div class="alert alert-success" id="successMessage">
+      {{successMessage}}
+    </div>
+  {{/if}}
+  <script>
+    // Hide the success message after 5 seconds (5000 milliseconds)
+    setTimeout(() => {
+      const successMessage = document.getElementById('successMessage');
+      if (successMessage) {
+        successMessage.style.display = 'none';
+      }
+    }, 5000);
+  </script>
+
+
+    <!-- Start Main Top -->
+    <div class="main-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="right-phone-box">
+                        <p>Call US :- <a href="#"> +11 900 800 100</a></p>
+                    </div>
+                    <div class="our-link">
+                        <ul>
+                            {{#if ifAuthenticated}}
+                            <li><a href="/Account"><i class="fa fa-user s_color"></i> My Account</a></li>
+                            {{/if}}
+                            <li><a href="/contactUs"><i class="fas fa-headset"></i> Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                    <div class="login-box">
+                  {{#if ifAuthenticated}}
+                      <a href="/logout" class="btn btn-primary" style="float:right">SignOut</a>
+                            {{else}}
+                                <div class="login-box">
+                                    <div class="dropdown">
+                                        <button class="dropdown-button">Login or signUp</button>
+                                        <ul class="dropdown-options">
+                                            <li><a href="/login">Login</a></li>
+                                            <li><a href="/signin">Signup</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            {{/if}}
+              </div>
+
+                </div>
+            </div>
+        </div> 
+        
+    </div>
+    <!-- End Main Top -->
+
+    <!-- Start Main Top -->
+    <div class="sticky-header-container">
+    <header class="main-header" id="sticky-header">
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+            <div class="container">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                    <a class="navbar-brand" href="/"><img src="/Pictures/gampro-high-resolution-color-logo.png" class="logo" style="display:flex; justify-content:center; align-items:center;border-radius: 53px; width:102px;" alt=""></a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/aboutus">About Us</a></li>
+                        {{#if ifAuthenticated}}
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
+                                <ul class="dropdown-menu">
+                            <li><a href="/ewallet">E-Wallet</a></li>
+                                    <li><a href="/products">Games</a></li>
+                                </ul>
+                            </li>
+                        {{else}}
+                               <li class="nav-item"> <!-- Added a new container for non-authenticated users -->
+                                    <a href="/products" class="nav-link">SHOP</a>
+                                </li>
+                        {{/if}}
+                        {{!-- <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li> --}}
+                        <li class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Category</a>
+                            <ul class="dropdown-menu">
+								                <li><a href="/openworld">Open World</a></li>
+								                <li><a href="/FPS">FPS</a></li>
+                                <li><a href="/racing">Racing</a></li>
+                                {{!-- <li><a href="checkout.html"></a></li>
+                                <li><a href="my-account.html">My Account</a></li>
+                                <li><a href="wishlist.html">Wishlist</a></li> --}}
+                            </ul>
+                        </li>
+                        
+                        {{#if ifAuthenticated}}
+                        <li class="nav-item"><a class="nav-link" href="/wishlists">Wish List</a></li>
+                        {{/if}}
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+
+                <!-- Start Atribute Navigation -->
+                <div class="attr-nav">
+                    <ul>
+                        <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+                        <li class="side-menu">
+							<a href="/cart">
+								<i class="fa fa-shopping-bag"></i>
+								{{#if ifAuthenticated}}
+                            <span class="badge">{{cartNumber}}</span>
+                            {{/if}}
+								<p>My Cart</p>
+							</a>
+						</li>
+                    </ul>
+                </div>
+                <!-- End Atribute Navigation -->
+            </div>
+            <!-- Start Side Menu -->
+            <div class="side">
+                <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+                <li class="cart-box">
+                    <ul class="cart-list">
+                        <li>
+                            <a href="#" class="photo"><img src="/Pictures/images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Delica omtantur </a></h6>
+                            <p>1x - <span class="price">$80.00</span></p>
+                        </li>
+                        <li>
+                            <a href="#" class="photo"><img src="/Pictures/images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Omnes ocurreret</a></h6>
+                            <p>1x - <span class="price">$60.00</span></p>
+                        </li>
+                        <li>
+                            <a href="#" class="photo"><img src="/Pictures/images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Agam facilisis</a></h6>
+                            <p>1x - <span class="price">$40.00</span></p>
+                        </li>
+                        <li class="total">
+                            <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                            <span class="float-right"><strong>Total</strong>: $180.00</span>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+            <!-- End Side Menu -->
+        </nav>
+        <!-- End Navigation -->
+    </header>
+    </div>
+    <!-- End Main Top -->
+
+    <!-- Start Top Search -->
+    <div class="top-search">
+        <div class="container">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control" placeholder="Search">
+                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+            </div>
+        </div>
+    </div>
+    <!-- End Top Search -->
+<!-- content -->
+<section class="py-5" style="margin-top: 93px;">
+  <div class="container">
+    <div class="row gx-4">
+      <aside class="col-lg-6">
+        {{!-- <div class="border rounded-4 mb-3 d-flex justify-content-center">
+          <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image" href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big.webp">
+            <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="/Pictures/Home_Buy/{{products.image.[0]}}" />
+          </a>
+        </div> --}}
+        <div class="border rounded-4 mb-3 d-flex justify-content-center custom-width-div">
+          <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image" href="/Pictures/Home_Buy/{{products.image.[0]}}">
+            <img style="max-width: 100%; max-height: 100vh; margin: auto;" href="/Pictures/Home_Buy/{{products.image.[0]}}" class="rounded-4 fit" src="/Pictures/Home_Buy/{{products.image.[0]}}" />
+          </a>
+        </div>
+       <div class="d-flex justify-content-center mb-3">
+        {{#each products.image}}
+        {{#unlessFirst @index}}
+        <a data-fslightbox="mygallery" class="border mx-1 rounded-2" target="_blank" data-type="image" href="/Pictures/Home_Buy/{{this}}" class="item-thumb">
+          <img width="60" height="60" class="rounded-2" src="/Pictures/Home_Buy/{{this}}">
+        </a>
+        {{/unlessFirst}}
+      {{/each}}
+
+
+</div>
+
+        <!-- thumbs-wrap.// -->
+        <!-- gallery-wrap .end// -->
+      </aside>
+      <main class="col-lg-6">
+        <div class="ps-lg-3">
+          <h4 class="title text-dark">
+            {{products.name}}
+          </h4>
+          <div class="d-flex flex-row my-3">
+            <div class="text-warning mb-1 me-2">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="ms-1">
+                4.5
+              </span>
+            </div>
+            <span class="text-muted"><i class="fas fa-shopping-basket fa-sm mx-1"></i>{{products.stock}}</span>
+            <span class="text-success ms-2">In stock</span>
+          </div>
+
+          <div class="mb-3">
+            <span class="h5">{{products.price}}</span>
+            <span class="text-muted">/-</span>
+          </div>
+
+          <p>
+            {{Limit products.description 790}}
+          </p>
+
+          <div class="row">
+            <dt class="col-3">Type:</dt>
+            <dd class="col-9">Regular</dd>
+
+            <dt class="col-3">Category:</dt>
+            <dd class="col-9">{{products.category}}</dd>
+
+            <dt class="col-3">Studio</dt>
+            <dd class="col-9">Ubisoft</dd>
+          </div>
+
+          <hr />
+
+          <div class="row mb-4">
+            <div class="col-md-4 col-6">
+              <label class="mb-2">Specials</label>
+              <select class="form-select border border-secondary" style="height: 35px;">
+                <option>Extra DLC</option>
+                <option>Golden Edition</option>
+                <option>Limited Edition</option>
+              </select>
+            </div>
+            <!-- col.// -->
+          </div>
+         <a href="/Buynow/{{products.id}}" class="btn btn-success" style="width: 131px;">
+                    <span class="ti-bag"></span>
+                    Buy Now
+                </a>
+           <button class="btn btn-primary" onclick="addtocart('{{products._id}}')">
+              <span class="ti-bag"></span>
+               Add to Cart
+            </button>
+            <button class="btn btn-light border border-secondary py-2 icon-hover px-3 btn-save" data-product-id="{{products.id}}">
+                <i class="me-1 fa fa-heart fa-lg"></i> Save
+            </button>
+            {{#if order}}
+          <button id="showReviewFormButton" class="btn btn-primary">Add Review</button>
+          {{/if}}
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+<!-- content -->
+ <div class="cards">
+    <form id="formdata" enctype="multipart/form-data" style="display: none;">
+      <h2>Add Your Review</h2>
+      <label for="title">Title (Optional):</label>
+      <input type="text" name="title" id="title" placeholder="Optional">
+      <input type="hidden" value="{{products._id}}" id="prodId">
+      <div class="input-group">
+        <label for="review">Write your review here:</label>
+        <textarea id="review" name="review" rows="4" placeholder="Write your review here"></textarea>
+        <h4 style="font-family:sans-serif; font-weight:bold">Add Image</h4>
+        <input type="file" id="image" name="image" onchange="previewImages(this)" multiple>
+      </div>
+      <button type="submit" class="add-review-button" id="addReviewButton">Submit</button>
+    </form>
+    <div class="image-preview-container" id="imagePreview"></div>
+  </div>
+
+ <div class="containers">
+    <h1>Customer Reviews</h1>
+    <div class="reviews">
+      {{#each review}}
+        <div class="review-card">
+          <div class="review-header">
+            <img src="/Pictures/profile/{{this.userId.profilePicture}}" alt="{{this.userId.username}} Profile Picture">
+            <div class="user-info">
+              <h2>{{this.userId.name}}</h2>
+              <p>{{this.date}}</p>
+            </div>
+          </div>
+          <div class="review-content">
+            <h3>{{this.title}}</h3>
+            <p>{{this.review}}</p>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+
+
+
+
+
+<!-- Start Footer  -->
+    <footer>
+        <div class="footer-main">
+            <div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-top-box">
+							<h3>Business Time</h3>
+							<ul class="list-time">
+								<li>Monday - Friday: 08.00am to 05.00pm</li> <li>Saturday: 10.00am to 08.00pm</li> <li>Sunday: <span>Closed</span></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-top-box">
+							<h3>Newsletter</h3>
+							<form class="newsletter-box">
+								<div class="form-group">
+									<input class="" type="email" name="Email" placeholder="Email Address*" />
+									<i class="fa fa-envelope"></i>
+								</div>
+								<button class="btn hvr-hover" type="submit">Submit</button>
+							</form>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-top-box">
+							<h3>Social Media</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<ul>
+                                <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
+                            </ul>
+						</div>
+					</div>
+				</div>
+				<hr>
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-widget">
+                            <h4>About Freshshop</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> 							
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-link">
+                            <h4>Information</h4>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Customer Service</a></li>
+                                <li><a href="#">Our Sitemap</a></li>
+                                <li><a href="#">Terms &amp; Conditions</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Delivery Information</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-link-contact">
+                            <h4>Contact Us</h4>
+                            <ul>
+                                <li>
+                                    <p><i class="fas fa-map-marker-alt"></i>Address: Michael I. Days 3756 <br>Preston Street Wichita,<br> KS 67213 </p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+1-888705770">+1-888 705 770</a></p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-envelope"></i>Email: <a href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+   
+
+ 
+    <div class="footer-copyright">
+        <p class="footer-company">All Rights Reserved. &copy; 2018 <a href="#">ThewayShop</a> Design By :
+            <a href="https://html.design/">html design</a></p>
+    </div>
+   
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+    <script>
+        window.addEventListener("scroll", function() {
+    const header = document.getElementById("sticky-header");
+    const mainTop = document.querySelector(".main-top");
+
+    // Get the height of the Main Top section
+    const mainTopHeight = mainTop.offsetHeight;
+
+    // Get the current scroll position
+    const scrollY = window.scrollY || window.pageYOffset;
+
+    // If the user has scrolled past the Main Top section, make the header sticky
+    if (scrollY > mainTopHeight) {
+        header.style.position = "fixed";
+        header.style.top = "0";
+    } else {
+        // If the user scrolls back up, reset the header's position
+        header.style.position = "static"; // Reset to static position
+    }
+});
+
+    </script>
+    <script>
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+    });
+</script>
+
+<script>
+  $(document).ready(function () {
+    $('#ex1 a[data-mdb-toggle="pill"]').on('shown.bs.tab', function (e) {
+      // Activate the tab content based on the currently shown tab
+      var targetTab = $(e.target).attr("href");
+      $(targetTab).addClass("show active");
+    });
+  });
+</script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="path/to/jquery.js"></script>
+    <script src="path/to/bootstrap.js"></script>
+    <script src="path/to/bootstrap.js"></script>
+    <script src="js/jquery.superslides.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/inewsticker.js"></script>
+    <script src="js/bootsnav.js."></script>
+    <script src="js/images-loded.min.js"></script>
+    <script src="js/isotope.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/baguetteBox.min.js"></script>
+    <script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.1/toastify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+<script>
+	function addtocart(productId) {
+	  $.ajax({
+		url: '/add-to-cart/' + productId,
+		method: 'POST',
+  
+		success: (response) => {
+  if (response.status === true) {
+    Swal.fire({
+      title: 'Added To Cart',
+      text: 'Your Product has been added to Cart',
+      icon: 'success',
+      timer: 5000
+    });
+  }
+}
+	  })
+	}
+</script>
+<script>
+    function previewImages(input) {
+      const imagePreview = document.getElementById('imagePreview');
+      imagePreview.innerHTML = ''; // Clear previous previews
+
+      const files = input.files;
+      const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+      const maxFiles = 3; // Maximum number of files allowed
+
+      if (files.length > maxFiles) {
+        alert(`You can only select up to ${maxFiles} images.`);
+        input.value = ''; // Clear selected files
+        return;
+      }
+
+      for (let i = 0; i < files.length; i++) {
+        if (allowedTypes.includes(files[i].type)) {
+          const imageContainer = document.createElement('div');
+          imageContainer.classList.add('image-container');
+          const image = document.createElement('img');
+          image.src = URL.createObjectURL(files[i]);
+          imageContainer.appendChild(image);
+          imagePreview.appendChild(imageContainer);
+        } else {
+          alert('Invalid file type. Please select only image files.');
+          input.value = ''; // Clear selected files
+          return;
+        }
+      }
+    }
+  </script>
+
+ <script>
+       $(document).ready(function()
+       {
+        const form = document.getElementById('formdata')
+
+        form.addEventListener('submit', function(e)
+        {
+          e.preventDefault()
+          const prodId = document.getElementById('prodId').value
+          const formData = new FormData(form)
+          const Rbutton = document.getElementById('showReviewFormButton')
+          $.ajax({
+            url:`/review/${prodId}`,
+            method:"POST",
+            data: formData,
+            processData: false, // Prevent automatic serialization
+            contentType: false,
+            success:function(response)
+            {
+              console.log(response)
+              Toastify({
+                text: "Review submission successfull", // Replace with your success message
+                duration: 3000, // Duration in milliseconds (e.g., 3000ms = 3 seconds)
+                newWindow: true,
+                close: true,
+                gravity: 'top', // You can change this to 'bottom' if you prefer
+                position: 'left', // You can change this to 'right' if you prefer
+                backgroundColor: '#007BFF', // Customize the background color
+              }).showToast();
+              reviewForm.style.display = 'none'
+              Rbutton.style.display = 'none'
+              
+            },
+            error: function()
+            {
+              Toastify({
+                text: 'You have already submitted review for the product before', // Replace with your error message
+                duration: 3000,
+                newWindow: true,
+                close: true,
+                gravity: 'top',
+                position: 'left',
+                backgroundColor: '#ff6347', // Customize the background color for errors
+              }).showToast();
+            }
+          })
+        })
+       })
+ </script>
+ <script>
+  const Rbutton = document.getElementById('showReviewFormButton')
+  const reviewForm = document.getElementById('formdata')
+  Rbutton.addEventListener('click', function(e)
+  {
+    e.preventDefault()
+    if(reviewForm.style.display == 'none')
+    {
+      reviewForm.style.display = 'block'
+    }
+    else
+    {
+      reviewForm.style.display = 'none'
+    }
+  })
+ </script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const wishlistLinks = document.querySelectorAll('[data-product-id]');
+
+    wishlistLinks.forEach(function(wlist) {
+      const productId = wlist.getAttribute('data-product-id');
+      const heartIcon = wlist.querySelector('i.fa-heart');
+      const isRed = localStorage.getItem(`wishlist_${productId}`) === 'true';
+
+      if (isRed) {
+        heartIcon.style.color = 'red';
+      }
+
+      wlist.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const productId = this.getAttribute('data-product-id');
+        const heartIcon = this.querySelector('i.fa-heart');
+        const isRed = localStorage.getItem(`wishlist_${productId}`) === 'true';
+
+        const method = isRed ? 'DELETE' : 'POST';
+
+        fetch(`/wishlist/${productId}`, {
+          method: method,
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+          .then(response => {
+            if (response.ok) {
+              if (isRed) {
+                alert("Removed from wishlist");
+                heartIcon.style.color = '';
+                localStorage.removeItem(`wishlist_${productId}`);
+              } else {
+                alert("Added to wishlist");
+                heartIcon.style.color = 'red';
+                localStorage.setItem(`wishlist_${productId}`, 'true');
+              }
+
+              console.log('Product wishlist status updated successfully!');
+            }
+            else {
+              response.json().then(data => {
+                if (data.message) {
+                  alert(data.message);
+                } else {
+                  alert("Can't add the product to wishlist");
+                }
+              });
+              console.error('Error wishlisting the product');
+            }
+          })
+          .catch(error => {
+            console.error('Network error:', error);
+          });
+      });
+    });
+  });
+</script>
+<script>
+    const dropdown = document.querySelector('.dropdown');
+    const button = dropdown.querySelector('.dropdown-button');
+
+    button.addEventListener('click', function () {
+        dropdown.classList.toggle('active');
+    });
+  </script>
+</body>

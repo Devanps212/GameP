@@ -1,0 +1,168 @@
+{{!-- card 1 --}}
+{{!-- <div class="col-lg-6 col-md-12" style="width: auto;">
+  <div class="card mb-4">
+    <div class="card-header">
+      <h4>Media</h4>
+    </div>
+    <div class="input-upload">
+      <img src="/Pictures/images/upload-1118929_1920.png" id="imgView1" alt="" style="margin-bottom: 12px;box-shadow: 0px 0px 4px; cursor: pointer;" onclick="showEnlargedImage(1)">
+      <input class="form-control" id="input1" name="images" onchange="viewImage(event, 1)" type="file">
+    </div>
+    <div class="image-cropper" style="display:none;">
+      <img src="" id="croppedImg1" alt="">
+      <button type="button" id="saveButton1" class="btn-sm btn-primary">Save</button>
+    </div>
+    <div class="enlarged-image" id="enlargedImg1">
+      <img src="" alt="">
+    </div>
+  </div>
+</div>
+{{!-- end --}}
+{{!-- card 2 --}}
+ <div class="col-lg-6" style="width: auto;">
+  <div class="card mb-4">
+    <div class="card-header">
+      <h4>Media</h4>
+    </div>
+    <div class="input-upload">
+      <img src="/Pictures/images/upload-1118929_1920.png" id="imgView2" alt="" style="margin-bottom: 12px;box-shadow: 0px 0px 4px; cursor: pointer;" onclick="showEnlargedImage(2)">
+      <input class="form-control" id="input2" name="images" onchange="viewImage(event, 2)" type="file">
+    </div>
+    <div class="image-cropper" style="display:none;">
+      <img src="" id="croppedImg2" alt="">
+      <button type="button" id="saveButton2" class="btn-sm btn-primary">Save</button>
+    </div>
+    <div class="enlarged-image" id="enlargedImg2">
+      <img src="" alt="">
+    </div>
+  </div>
+</div>
+{{!-- end --}}
+ {{!-- card 3 --}}
+<div class="col-lg-6" style="width: auto;">
+  <div class="card mb-4">
+    <div class="card-header">
+      <h4>Media</h4>
+    </div>
+    <div class="input-upload">
+      <img src="/Pictures/images/upload-1118929_1920.png" id="imgView3" alt="" style="margin-bottom: 12px;box-shadow: 0px 0px 4px; cursor: pointer;" onclick="showEnlargedImage(3)">
+      <input class="form-control" id="input3" name="images" onchange="viewImage(event, 3)" type="file">
+    </div>
+    <div class="image-cropper" style="display:none;">
+      <img src="" id="croppedImg3" alt="">
+      <button type="button" id="saveButton3" class="btn-sm btn-primary">Save</button>
+    </div>
+    <div class="enlarged-image" id="enlargedImg3">
+      <img src="" alt="">
+    </div>
+  </div>
+</div> --}}
+{{!-- end --}}
+
+product add = real code|||||
+                        VVV
+                         V
+
+const add = async(req, res)=>
+{
+    try
+    {
+        upload.array('images', 4)(req, res,async(err)=>
+        {
+            if(err)
+            {
+                console.log(err)
+                return res.redirect('/admin/addproducts')
+            }
+            const imageName = req.files.map((file)=>path.basename(file.path))
+            const categories = await category.find({_id:req.body.category}) 
+
+            const newProduct = new product({
+                name:req.body.name,
+                description:req.body.description,
+                price:req.body.price,
+                category:categories[0].name,
+                stock:req.body.stock,
+                offerprice:req.body.offerprice,
+                image:imageName
+
+            })
+            const prod =await newProduct.save()
+            console.log("saved")
+            return res.redirect('/admin/addproducts')
+        })
+    }
+    catch(error)
+    {
+        console.log(error.message)
+        console.log("not saved")
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+Modified add = |||||
+                VVV
+                 V
+const add = async (req, res) => {
+    try {
+        const MaxLimit = 6;
+        console.log("upload reached");
+
+        upload.array('images', MaxLimit)(req, res, async (err) => {
+            if (err) {
+                console.error(err);
+
+                // Handle the error and provide a response
+                const errorMessage = `File upload failed. Please try again.`;
+                req.flash('error', errorMessage);
+                console.log(errorMessage);
+                return res.redirect('/admin/addProducts');
+            }
+
+            if (req.files.length > MaxLimit) {
+                const errorMessage = `Max limit exceeded (${MaxLimit} images only)`;
+                req.flash('error', errorMessage);
+                console.log(errorMessage);
+                return res.redirect('/admin/addProducts');
+            }
+
+            // Process the uploaded files and create the product as before
+            const imageName = req.files.map((file) => path.basename(file.path));
+            const categories = await category.find({ _id: req.body.category });
+
+            const newProduct = new product({
+                name: req.body.name,
+                description: req.body.description,
+                price: req.body.price,
+                category: categories[0].name,
+                stock: req.body.stock,
+                offerprice: req.body.offerprice,
+                image: imageName,
+            });
+
+            const prod = await newProduct.save();
+            console.log("Product saved");
+            const successMessage = "Product added successfully";
+            req.flash('success', successMessage);
+            console.log(successMessage);
+
+            // Redirect to the appropriate page (e.g., the products list)
+            return res.redirect('/admin/addProducts');
+        });
+    } catch (error) {
+        console.error(error.message);
+        req.flash('error', 'An error occurred while processing your request.');
+        return res.redirect('/admin/addProducts'); // Handle errors gracefully
+    }
+};

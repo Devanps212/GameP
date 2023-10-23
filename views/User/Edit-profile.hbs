@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMPro</title>
+    <!-- Include your CSS styles here -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        #image-container img {
+            max-width: 200px;
+            height: auto; /* Maintain aspect ratio */
+            margin-top: 16px;
+            border: solid;
+            color: lightblue;
+            padding: 3px;
+}
+    </style>
+</head>
+<body>
+    <h1>Edit Profile</h1>
+    
+    <form action="/update-profile" method="POST" enctype="multipart/form-data">
+        <!-- Name -->
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{profile.name}}" required>
+        </div>
+        
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{profile.email}}" required>
+        </div>
+        
+        <!-- Mobile -->
+        <div class="form-group">
+            <label for="mobile">Mobile:</label>
+            <input type="tel" id="mobile" name="mobile" value="{{profile.number}}" required>
+        </div>
+        
+        <!-- Profile Picture -->
+       <div class="container">
+        <label for="profile picture">Profile Picture</label>
+        <input type="file" name="images" id="fileInput">
+        <div id="image-container" style="display: flex;justify-content:center;"></div>
+    </div>
+        <!-- Submit Button -->
+        <button type="submit">Save Changes</button>
+    </form>
+     <script>
+        // Function to handle file input change
+        document.getElementById('fileInput').addEventListener('change', function () {
+            const imageContainer = document.getElementById('image-container');
+            imageContainer.innerHTML = ''; // Clear the previous images
+
+            const files = this.files;
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        // Create a container div for each image
+                        const imageCard = document.createElement('div');
+                        imageCard.classList.add('image-card');
+
+                        // Create an image element
+                        const image = document.createElement('img');
+                        image.src = e.target.result;
+                        image.classList.add('uploaded-image');
+
+                        // Append the image to the container
+                        imageCard.appendChild(image);
+                        
+                        // Append the container to the image container
+                        imageContainer.appendChild(imageCard);
+                    };
+
+                    reader.readAsDataURL(file);
+                }
+            }
+        });
+    </script>
+    <!-- Include your JavaScript for form validation or other functionality here -->
+</body>
+</html>
